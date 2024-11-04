@@ -10,10 +10,6 @@ WEBHOOK_URL="${NGROK_URL}/"
 REPO="ShinoTetsuny/kubernetes"  # Remplacez par votre nom d'utilisateur et dépôt
 TOKEN=$GITHUB_TOKEN_PUBLIC        # Remplacez par votre token GitHub
 
-# Supprimer le webhook existant (optionnel)
-curl -X DELETE -H "Authorization: token $TOKEN" \
-  "https://api.github.com/repos/$REPO/hooks"
-
 # Créer le webhook GitHub
 curl -X POST -H "Authorization: token $TOKEN" \
   -H "Accept: application/vnd.github.v3+json" \
@@ -21,8 +17,7 @@ curl -X POST -H "Authorization: token $TOKEN" \
   -d "{
     \"config\": {
       \"url\": \"$WEBHOOK_URL\",
-      \"content_type\": \"json\",
-      \"insecure\": true
+      \"content_type\": \"json\"
     },
     \"events\": [
       \"push\"

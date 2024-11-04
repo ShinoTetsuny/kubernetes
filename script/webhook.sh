@@ -21,8 +21,7 @@ curl -X POST -H "Authorization: token $TOKEN" \
   -d "{
     \"config\": {
       \"url\": \"$WEBHOOK_URL\",
-      \"content_type\": \"json\",
-      \"insecure\": true
+      \"content_type\": \"json\"
     },
     \"events\": [
       \"push\"
