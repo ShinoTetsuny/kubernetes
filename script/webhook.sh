@@ -8,7 +8,7 @@ WEBHOOK_URL="${NGROK_URL}/inspect/http"
 
 # Configuration du webhook GitHub
 REPO="https://github.com/ShinoTetsuny/kubernetes"  # Remplacez par votre nom d'utilisateur et dépôt
-TOKEN=""        # Remplacez par votre token GitHub
+TOKEN=$GITHUB_TOKEN_PUBLIC        # Remplacez par votre token GitHub
 
 # Supprimer le webhook existant (optionnel)
 curl -X DELETE -H "Authorization: token $TOKEN" \
